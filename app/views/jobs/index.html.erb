@@ -1,0 +1,17 @@
+<%= link_to "Add a job", new_job_path, class:"btn btn-default" %>
+<table class="table">
+  <% @jobs.each do |job| %>
+  <tr>
+    <td>
+      <%= link_to job.title, job_path(job) %>
+    </td>
+    <td>
+      <%= link_to "Edit", edit_job_path(job.id) %> ｜
+      <%= link_to "Destroy", job_path(job.id), method: "delete", data:{confirm:"確認刪除嗎？"}  %>
+    </td>
+    <td>
+      <%= job.created_at %>
+    </td>
+  </tr>
+  <% end %>
+</table>
