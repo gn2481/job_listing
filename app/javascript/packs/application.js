@@ -5,6 +5,7 @@
 
 //= require jquery
 //= require bootstrap-sprockets
+//= require bootstrap/alert
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
