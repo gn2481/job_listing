@@ -1,11 +1,12 @@
 class Admin::JobsController < ApplicationController
-  before_action :find_job, only: %i[show edit update destroy]
+  before_action :find_job, only: %i[show edit update destroy public hide]
   before_action :authenticate_user!, only: %i[new create edit update destroy]
   before_action :require_is_admin
   layout "admin"
   def index
      @jobs = Job.all.order("created_at DESC")
   end
+
   def show 
   end
 
@@ -39,6 +40,16 @@ class Admin::JobsController < ApplicationController
     else
       redirect_to admin_jobs_path, notice: "請再試一次！"
     end
+  end
+
+  def public
+    @job.public!
+    redirect_back fallback_location: root_path, notice: '職缺發布成功'
+  end
+
+  def hide
+    @job.hide!
+    redirect_back fallback_location: root_path, notice: '職缺隱藏成功'
   end
 
   private

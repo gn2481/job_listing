@@ -6,6 +6,10 @@ class JobsController < ApplicationController
   end
 
   def show 
+    if @job.is_hidden
+      flash[:warning] = "此職缺已被封存"
+      redirect_to root_path 
+    end
   end
 
   def new 
