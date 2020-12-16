@@ -3,6 +3,10 @@ class Admin::JobsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update destroy]
   before_action :require_is_admin
   
+  def index
+     @jobs = Job.all
+  end
+
   def show 
   end
 
@@ -46,11 +50,4 @@ class Admin::JobsController < ApplicationController
   def job_params 
     params.require(:job).permit(:title, :description)
   end
-
-  def require_is_admin
-    if !current_user.admin?
-      redirect_to root_path, alert: "You are not admin !"
-    end
-  end
-
 end
