@@ -1,6 +1,8 @@
 <%= simple_form_for(job) do |f| %>
-  <%= f.input :title, lable: "title" %>
-  <%= f.input :description, lable: "description" %>
-
-  <%= f.submit %>
+  <%= f.input :title, lable: "工作職稱" %>
+  <%= f.input :description, lable: "工作內容" %>
+  <%= f.input :wage_upper_bound, lable: "薪資上限" %>
+  <%= f.input :wage_lower_bound, lable: "薪資下限" %>
+  <%= f.input :contact_email, lable: "聯絡-email" %>
+  <%= f.button :submit, class: "btn btn-secondary" %>
 <% end %>

@@ -3,3 +3,20 @@
 <p>
   <%= simple_format(@job.description) %>
 </p>
+
+<table class="table">
+  <tr>
+    <td>薪資上限</td>
+    <td><%= @job.wage_upper_bound %></td>
+  </tr>
+
+  <tr>
+    <td>薪資下限</td>
+    <td><%= @job.wage_lower_bound %></td>
+  </tr>
+
+  <tr>
+    <td>聯絡 e-mail </td>
+    <td><%= @job.contact_email %></td>
+  </tr>
+</table>
