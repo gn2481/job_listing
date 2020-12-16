@@ -2,7 +2,7 @@ class Admin::JobsController < ApplicationController
   before_action :find_job, only: %i[show edit update destroy]
   before_action :authenticate_user!, only: %i[new create edit update destroy]
   before_action :require_is_admin
-  
+  layout "admin"
   def index
      @jobs = Job.all.order("created_at DESC")
   end
