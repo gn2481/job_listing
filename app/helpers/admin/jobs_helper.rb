@@ -1,9 +1,9 @@
 module Admin::JobsHelper
   def render_job_status(job)
     if job.is_hidden
-      "(Hidden)"
+      content_tag(:i, '', class: 'fas fa-lock')
     else
-      "(Public)"
+      content_tag(:i, '', class: 'fas fa-globe-asia')
     end
   end
 end

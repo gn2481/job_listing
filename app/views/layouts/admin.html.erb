@@ -32,23 +32,21 @@
       </div>
     </div>
   </nav>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-2">
-        <div class="list-group" id="list-tab" role="tablist">
-          <%= link_to  "Admin Dashboard", admin_jobs_path, class:"list-group-item list-group-item-action list-group-item-primary" %>
-          <%= link_to  "User Dashboard", jobs_path, class:"list-group-item list-group-item-action" %>
-          
-        </div>
-      </div>
+  <div class="row">
+    <div class="col-2 bg-light vh-100 px-0">
+      <div class="list-group" id="list-tab" role="tablist">
+        <%= link_to  "Admin Dashboard", admin_jobs_path, class:"list-group-item list-group-item-action list-group-item-primary" %>
+        <%= link_to  "User Dashboard", jobs_path, class:"list-group-item list-group-item-action" %>
 
-      <div class="col-10">
-        <%= render "common/flashes" %>
-        <%= yield %>
       </div>
     </div>
+
+    <div class="col-10">
+      <%= render "common/flashes" %>
+      <%= yield %>
+      <%= render "common/footer" %>
+    </div>
   </div>
-  <%= render "common/footer" %>
 </body>
 
 </html>
