@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
   before_action :find_job, only: %i[show edit update destroy]
+  before_action :authenticate_user!, only: %i[new create edit update destroy]
   def index 
     @jobs = Job.all
   end
