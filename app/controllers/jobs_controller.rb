@@ -2,7 +2,7 @@ class JobsController < ApplicationController
   before_action :find_job, only: %i[show edit update destroy]
   before_action :authenticate_user!, only: %i[new create edit update destroy]
   def index 
-    @jobs = Job.all
+    @jobs = Job.where(is_hidden: false).order("created_at DESC")
   end
 
   def show 
