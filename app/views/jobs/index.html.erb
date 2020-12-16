@@ -1,16 +1,37 @@
 <div class="d-flex  justify-content-end">
-  <%= link_to "Add a job", new_job_path, class:"mr-0 btn btn-outline-secondary" %>
+  <div class="dropdown">
+    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      排序
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <%= link_to  "按照薪資上限排序", jobs_path(order: "by_upper_bound"), class: "dropdown-item" %>
+      <%= link_to  "按照底薪排序", jobs_path(order: "by_lower_bound"), class: "dropdown-item" %>
+      <%= link_to  "按照建立時間排序", jobs_path(order: "by_created_time"), class: "dropdown-item" %>
+      
+    </div>
+  </div>
 </div>
-<table class="table">
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>職稱</th>
+    <th>薪資上限</th>
+    <th>底薪</th>
+    <th>建立時間</th>
+  </tr>
+  </thead>
+  
   <% @jobs.each do |job| %>
   <tr>
     <td>
       <%= link_to job.title, job_path(job) %>
     </td>
     <td>
-      <%= link_to "Edit", edit_job_path(job.id) %> ｜
-      <%= link_to "Destroy", job_path(job.id), method: "delete", data:{confirm:"確認刪除嗎？"}  %>
+     <%= job.wage_upper_bound %>
     </td>
+    <td>
+      <%= job.wage_lower_bound %>
+     </td>
     <td>
       <%= job.created_at %>
     </td>
