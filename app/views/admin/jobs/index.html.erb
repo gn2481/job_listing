@@ -2,12 +2,26 @@
   <%= link_to 'Add a job', new_admin_job_path, class:'mr-0 btn btn-outline-secondary' %>
 </div>
 <table class='table'>
+  <thead>
+    <tr>
+      <th>職稱</th>
+      <th>已投遞的履歷</th>
+      <th>動作</th>
+      <th>建立時間</th>
+    </tr>
+  </thead>
+
   <% @jobs.each do |job| %>
   <tr>
     <td>
       <%= render_job_status(job) %>
       <%= link_to job.title, admin_job_path(job) %>
     </td>
+
+    <td>
+      <%= link_to job.resumes.count, admin_job_resumes_path(job) %> 
+    </td>
+
     <td>
       <%= link_to 'Edit', edit_admin_job_path(job) %> ｜
       <%= link_to 'Destroy', admin_job_path(job), method: 'delete', data:{confirm: '確認刪除嗎？'}  %>
@@ -16,8 +30,8 @@
       <% else %>
         <%= link_to  "Hide", hide_admin_job_path(job), method: 'post',class: "btn btn-outline-secondary" %>
       <% end %>
-      
     </td>
+
     <td>
       <%= job.created_at %>
     </td>

@@ -9,7 +9,10 @@ Rails.application.routes.draw do
         post :public
         post :hide
       end
+      
+      resources :resumes
     end
+    
   end
 
   resources :jobs do

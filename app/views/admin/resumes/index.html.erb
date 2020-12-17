@@ -1,0 +1,15 @@
+<h1><%= @job.title %> 已投遞的履歷</h1>
+<% @resumes.each do |r| %>
+<div class="card my-3">
+  <h5 class="card-header"><%= r.user.email %></h5>
+  <div class="card-body">
+    <h5 class="card-title">Cover Letter</h5>
+    <p class="card-text"><%= r.cover_letter %></p>
+  </div>
+  <% if r.attachment.present? %>
+    <%= link_to '履歷下載', r.attachment_url, class:"card-footer" %>
+  <% else %>
+    <div class= "card-footer ">無附件</div>
+  <% end %>
+</div>
+  <% end %>
