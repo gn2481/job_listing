@@ -1,5 +1,7 @@
 <h1>投遞履歷到 <%= @job.title %> </h1>
 <%= simple_form_for [@job, @resume] do |r| %>
-  <%= r.input :cover_letter, label: "自我推薦信" %>
-  <%= r.submit %>
+  <%= r.input :cover_letter, label: '自我推薦信' %>
+  <%= r.input :attachment, label: '履歷上傳' %>
+
+  <%= r.submit '送出' %>
 <% end %>
