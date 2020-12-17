@@ -18,9 +18,10 @@
     <th>薪資上限</th>
     <th>底薪</th>
     <th>建立時間</th>
+    <th></th>
   </tr>
   </thead>
-  
+
   <% @jobs.each do |job| %>
   <tr>
     <td>
@@ -34,6 +35,9 @@
      </td>
     <td>
       <%= job.created_at %>
+    </td>
+    <td>
+      <%= link_to '投遞履歷', new_job_resume_path(job), class: 'btn btn-outline-secondary' %>
     </td>
   </tr>
   <% end %>
